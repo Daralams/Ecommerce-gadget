@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+// connect to model
+use App\Models\Products;
+use App\Models\KategoriMerk;
+
+class RoutesController extends Controller
+{
+   
+   public function products () {
+     return view('products', [
+    "title" => "Products",
+    "product" => Products::all(),
+    "kategoriMerk" => KategoriMerk::all()
+    ]);
+   }
+   
+   public function product (Products $product) {
+     return view('product', [
+      "title" => "Detail Product",
+      "product" => $product
+    ]);
+   }
+   
+   public function contact () {
+     return view('contact', [
+      "title" => "Contact"
+    ]);
+   }
+   
+}
