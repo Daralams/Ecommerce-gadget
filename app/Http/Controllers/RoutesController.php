@@ -26,8 +26,9 @@ class RoutesController extends Controller
    }
    
    public function contact () {
-     return view('contact', [
-      "title" => "Contact"
+     return view('partials/footer', [
+      "title" => "Contact",
+      "kategoriMerk" => KategoriMerk::all()
     ]);
    }
    

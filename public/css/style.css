@@ -1,0 +1,49 @@
+#nav-logo {
+  font-family: "Orbitron", sans-serif;
+}
+.hero-section {
+  background-image: url('../assets/bg-hero-section.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+  #slide-hero {
+    width: 60%;
+  }
+
+.height-img {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85px;
+}
+.height-img img {
+  width: 120px;
+}
+
+.gallery-section {
+  background-image: url('../assets/gallery-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 576px) {
+  #welcome-section {
+    display: block !important;
+  }
+  
+  #img-fluid {
+    width: 100% !important;
+  }
+  
+  #welcome-caption {
+    width: 100% !important;
+  }
+  
+  #card-size {
+    width: 19rem;
+  }
+  
+}

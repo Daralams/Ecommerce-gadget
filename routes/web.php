@@ -21,17 +21,15 @@ use App\Http\Controllers\RoutesController;
 Route::get('/', function() {
   return view('home', [
       "title" => "Home",
-      "image" => "pinguin.JPG",
-      "name" => "Mangandaralam Sakti",
-      "email" => "saktodmarkotod@gcom"]
-      );
+      "kategoriMerk" => KategoriMerk::all()
+      ]);
 });
 
 //routes menggunakan controller
 Route::get('/products', [RoutesController::class, 'products']);
 // halaman detail product
 Route::get('/products/{product:slug}', [RoutesController::class, 'product']);
-Route::get('/merk/{{$kategoriMerk:slug}}', function(KategoriMerk $kategori) {
+Route::get('/product/{kategori:slug}', function(KategoriMerk $kategori) {
   return view('merk', [
     "title" => $kategori->merk,
     "product" => $kategori->products,
