@@ -23,9 +23,9 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2 bg-transparent" type="search" placeholder="cari product" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">cari</button>
+      <form class="d-flex" role="search" action="/products">
+        <input class="form-control me-2 bg-transparent" type="text" placeholder="Search" name="search" value="{{request('search')}}">
+        <button class="btn btn-outline-light" type="submit">search</button>
       </form>
     </div>
   </div>

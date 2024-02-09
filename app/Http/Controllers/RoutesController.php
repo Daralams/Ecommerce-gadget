@@ -11,10 +11,17 @@ class RoutesController extends Controller
 {
    
    public function products () {
+     
+     $product = Products::latest();
+     
+     if(request('search')) {
+       $product->where('tipe_laptop', 'like', '%'. request('search'). '%');
+     }
+     
      return view('products', [
-    "title" => "Products",
-    "product" => Products::all(),
-    "kategoriMerk" => KategoriMerk::all()
+      "title" => "Products",
+      "product" => $product->get(),
+      "kategoriMerk" => KategoriMerk::all()
     ]);
    }
    

@@ -29,12 +29,13 @@ Route::get('/', function() {
 Route::get('/products', [RoutesController::class, 'products']);
 // halaman detail product
 Route::get('/products/{product:slug}', [RoutesController::class, 'product']);
+
 Route::get('/product/{kategori:slug}', function(KategoriMerk $kategori) {
   return view('merk', [
     "title" => $kategori->merk,
     "product" => $kategori->products,
     "merk" => $kategori->merk
     ]);
-});
+}); 
 
 Route::get('/contact', [RoutesController::class, 'contact']);
