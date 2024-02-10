@@ -29,6 +29,18 @@
   background-size: cover;
 }
 
+ .pagination .page-item .page-link {
+   background-color: transparent;
+   color: #00E1FF;
+   border-color: #00E1FF;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #00E1FF;
+    color: white;
+} 
+
+
 @media (max-width: 576px) {
   #welcome-section {
     display: block !important;

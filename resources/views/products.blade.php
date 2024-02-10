@@ -14,7 +14,7 @@
       <p class="text-white fs-5">Product is Empty</p>
       @else
       @foreach($product as $item)
-      <div class="card border-info m-2 bg-dark bg-gradient" style="width: 18rem;">
+      <div class="card border-info m-2 bg-dark bg-gradient" style="width: 15rem;">
         <div class="d-flex justify-content-center">
           <img src="assets/asus.jpg" class="card-img-top w-50" alt="{{$item->gambar}}">
         </div>
@@ -30,5 +30,8 @@
         </div>
          @endforeach
          @endif
+    </div>
+    {{$product->links()}}
+      
     </div>
 @endsection

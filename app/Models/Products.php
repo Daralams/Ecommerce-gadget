@@ -12,6 +12,12 @@ class Products extends Model
     
     protected $guarded = ['id'];
     
+    public function scopeSearching($query) {
+      if(request('search')) {
+        return $query->where('tipe_laptop', 'like', '%'. request('search'). '%');
+      }
+    }
+    
     public function kategoriMerk(): BelongsTo
     {
       return $this->belongsTo(KategoriMerk::class, 'id_merk');
