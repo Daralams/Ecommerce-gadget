@@ -21,8 +21,10 @@ use App\Http\Controllers\SignUpController;
 
 
 // auth
-Route::get('/sign-in', [SignInController::class, 'signIn']);
-Route::get('/sign-up', [SignUpController::class, 'signUp']);
+Route::get('/sign-in', [SignInController::class, 'signIn'])->name('login')->middleware('guest');
+Route::post('/sign-in', [SignInController::class, 'authenticate']);
+Route::post('/sign-out', [SignInController::class, 'signOut']);
+Route::get('/sign-up', [SignUpController::class, 'signUp'])->middleware('guest');
 Route::post('/sign-up', [SignUpController::class, 'store']);
 
 // Routes menggunakan closures
@@ -36,7 +38,7 @@ Route::get('/', function() {
 //routes menggunakan controller
 Route::get('/products', [RoutesController::class, 'products']);
 // halaman detail product
-Route::get('/products/{product:slug}', [RoutesController::class, 'product']);
+Route::get('/products/{product:slug}', [RoutesController::class, 'product'])->middleware('auth');
 
 Route::get('/product/{kategori:slug}', function(KategoriMerk $kategori) {
   return view('merk', [
@@ -45,7 +47,7 @@ Route::get('/product/{kategori:slug}', function(KategoriMerk $kategori) {
     "merk" => $kategori->merk
     ]);
 }); 
-Route::get('/products/{kategori:slug}', [RoutesController::class, 'brand']);
+//Route::get('/products/{kategori:slug}', [RoutesController::class, 'brand']);
 
 
 Route::get('/contact', [RoutesController::class, 'contact']);

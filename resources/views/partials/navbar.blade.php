@@ -10,19 +10,29 @@
           <a class="nav-link {{$title === 'Home' ? 'active' : ''}}" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{$title === 'Products' ? 'active' : ''}}" href="/products">product</a>
+          <a class="nav-link {{$title === 'Products' ? 'active' : ''}}" href="/products">Product</a>
         </li>
+        @auth
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            support
+            Support
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item {{$title === 'Sign In' ? 'active' : ''}}" href="/sign-in">Sign In</a></li>
-            <li><a class="dropdown-item {{$title === 'Sign Up' ? 'active' : ''}}" href="/sign-up">Sign Up</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/account">my account</a></li>
+            <li class="dropdown-item bg-secondary">Welcome back, {{auth()->user()->firstname}}</li>
+            <li><a class="dropdown-item" href="/account">Account</a></li>
+            <li>
+              <form action="/sign-out" method="post">
+                @csrf
+                <button type="submit" class="dropdown-item">Sign out</button>
+              </form>
+            </li>
           </ul>
         </li>
+        @else
+        <li class="nav-item">
+          <a class="nav-link {{$title === 'Sign In' ? 'active' : ''}}" href="/sign-in">Sign in</a>
+        </li>
+        @endauth
       </ul>
       <form class="d-flex" role="search" action="/products">
         <input class="form-control me-2 bg-transparent" type="text" placeholder="Search" name="search" value="{{request('search')}}">
