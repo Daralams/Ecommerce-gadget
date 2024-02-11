@@ -18,6 +18,12 @@
         @yield('container')
       </div>
     </div>
+    
+    <div class="bg-dark bg-gradient">
+      <div class="container d-flex justify-content-center pb-5">
+        @yield('sign')
+      </div>
+    </div>
 
   </body>
   

@@ -2,8 +2,8 @@
   @section('hero-section')
   <div class="w-100">
     <div class="mt-5 mb-5">
-        <h2 class="fs-3 text-white mb-3">Cutting-edge Tech, Contemporary Style. Discover Your Dream Laptop at TechTitan</h2>
-        <p class="fs-5 text-white mb-4">Explore the world of technology with the latest in laptops and trendy designs. Tech<span class="text-info">Titan</span> offers an unforgettable online shopping experience. Find your dream laptop now!</p>
+        <h2 class="fs-3 text-white mb-3">Cutting-edge Tech, Contemporary Style. Discover Your Dream Laptop at Tech<span class="text-info">Titan</span></h2>
+        <p class="fs-5 text-white mb-4">Explore the world of technology with the latest in laptops and trendy designs. TechTitan</span> offers an unforgettable online shopping experience. Find your dream laptop now!</p>
         <a href="/products" class="btn btn-outline-info">Shop now</a>
         <a href="#welcome-section" class="btn btn-info ml-2">Learn More</a>
     </div>

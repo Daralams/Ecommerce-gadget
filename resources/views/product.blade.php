@@ -14,7 +14,7 @@
           <p class="card-text">Harga : Rp {{$product->harga}}</p>
           <p class="card-text">Detail product : {{$product->detail_product}}</p>
           <p class="card-text">Quantity : {{$product->stok}}</p>
-          <p class="card-text">Publised at : {{$product->created_at}}</p>
+          <p class="card-text">Publised at : {{$product->created_at->diffForHumans()}}</p>
           <a href="/products" class="btn btn-info">Back</a>
           <a href="/payment" class="btn btn-outline-info">Add to Cart  </a>
           </div>

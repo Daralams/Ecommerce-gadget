@@ -32,6 +32,5 @@
          @endif
     </div>
     {{$product->links()}}
-      
     </div>
 @endsection

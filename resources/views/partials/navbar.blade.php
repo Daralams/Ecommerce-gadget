@@ -17,7 +17,8 @@
             support
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/login">login</a></li>
+            <li><a class="dropdown-item {{$title === 'Sign In' ? 'active' : ''}}" href="/sign-in">Sign In</a></li>
+            <li><a class="dropdown-item {{$title === 'Sign Up' ? 'active' : ''}}" href="/sign-up">Sign Up</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/account">my account</a></li>
           </ul>
@@ -25,7 +26,7 @@
       </ul>
       <form class="d-flex" role="search" action="/products">
         <input class="form-control me-2 bg-transparent" type="text" placeholder="Search" name="search" value="{{request('search')}}">
-        <button class="btn btn-outline-light" type="submit">search</button>
+        <button class="btn btn-outline-info" type="submit">search</button>
       </form>
     </div>
   </div>

@@ -1,6 +1,14 @@
 #nav-logo {
   font-family: "Orbitron", sans-serif;
 }
+
+#sign-ilustrasi img {
+  width: 60%;
+  position: relative;
+  transform: translateY(2.8rem);
+  z-index: 2;
+}
+
 .hero-section {
   background-image: url('../assets/bg-hero-section.png');
   background-repeat: no-repeat;
@@ -42,6 +50,12 @@
 
 
 @media (max-width: 576px) {
+    
+  #sign-ilustrasi img {
+    width: 70%;
+    transform: translateY(3.9rem);
+  }
+  
   #welcome-section {
     display: block !important;
   }
