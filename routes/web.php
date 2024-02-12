@@ -8,6 +8,7 @@ use App\Models\KategoriMerk;
 use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,16 +21,19 @@ use App\Http\Controllers\SignUpController;
 */
 
 
-// auth
+// auth users
 Route::get('/sign-in', [SignInController::class, 'signIn'])->name('login')->middleware('guest');
 Route::post('/sign-in', [SignInController::class, 'authenticate']);
 Route::post('/sign-out', [SignInController::class, 'signOut']);
 Route::get('/sign-up', [SignUpController::class, 'signUp'])->middleware('guest');
 Route::post('/sign-up', [SignUpController::class, 'store']);
 
+// admin 
+Route::get('/dashboard-admin', [AdminController::class, 'adminRoute']);
+
 // Routes menggunakan closures
 Route::get('/', function() {
-  return view('home', [
+  return view('pages.welcome', [
       "title" => "Home",
       "kategoriMerk" => KategoriMerk::all()
       ]);
@@ -41,7 +45,7 @@ Route::get('/products', [RoutesController::class, 'products']);
 Route::get('/products/{product:slug}', [RoutesController::class, 'product'])->middleware('auth');
 
 Route::get('/product/{kategori:slug}', function(KategoriMerk $kategori) {
-  return view('merk', [
+  return view('products.merk', [
     "title" => $kategori->merk,
     "product" => $kategori->products,
     "merk" => $kategori->merk

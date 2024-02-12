@@ -12,7 +12,7 @@ class RoutesController extends Controller
    
    public function products () {
      
-     return view('products', [
+     return view('products.products', [
       "title" => "Products",
       "product" => Products::latest()->searching()->paginate(4)->withQueryString(),
       "kategoriMerk" => KategoriMerk::all()
@@ -20,7 +20,7 @@ class RoutesController extends Controller
    }
    
    public function product (Products $product) {
-     return view('product', [
+     return view('products.product', [
       "title" => "Detail Product",
       "product" => $product
     ]);

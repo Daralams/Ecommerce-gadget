@@ -18,11 +18,15 @@
         @yield('container')
       </div>
     </div>
-    
+    <!--users-->
     <div class="bg-dark bg-gradient">
       <div class="container d-flex justify-content-center pb-5">
         @yield('sign')
       </div>
+    </div>
+    
+    <div class="container">
+      @yield('admin')
     </div>
 
   </body>
