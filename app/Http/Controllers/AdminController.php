@@ -24,9 +24,10 @@ class AdminController extends Controller
     }
     
     public function storeProduct(Request $request) {
+      
       $validated = $request->validate([
         'id_merk' => ['required'],
-        'gambar' => ['required'],
+        'gambar' => ['required', 'image', 'file', 'max:1024'],
         'tipe_laptop' => ['required'],
         'slug' => ['required', 'unique:products'],
         'varian' => ['required'],
@@ -34,6 +35,8 @@ class AdminController extends Controller
         'detail_product' => ['required'],
         'stok' => ['required']
         ]);
+        
+       $request->file('gambar')->store('post-images');
         
        Products::create($validated);
        $request->session()->flash('success', 'Product added successfully');
@@ -51,7 +54,6 @@ class AdminController extends Controller
         public function storeProductEdited (Request $request, Products $product) {
          $validated = $request->validate([
           'id_merk' => ['required'],
-          'gambar' => ['required'],
           'tipe_laptop' => ['required'],
           'slug' => ['required', 'unique:products'],
            'varian' => ['required'],

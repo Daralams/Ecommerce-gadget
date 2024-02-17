@@ -8,8 +8,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    
-    <!-- Custom styles for this template -->
        <link href="/css/checkout.css" rel="stylesheet">
   </head>
   <body class="bg-body-tertiary">
@@ -74,7 +72,7 @@
     <div class="row justify-content-center">
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Product</h4>
-        <form method="post" action="/addProduct">
+        <form method="post" action="/addProduct" enctype="multipart/form-data">
           @csrf
           <div class="row g-3 mb-3">
            <div class="col-sm-6">
@@ -103,14 +101,14 @@
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="type-laptop" class="form-label">Type</label>
-              <input type="text" class="form-control" name="tipe_laptop" required>
+              <input type="text" class="form-control" name="tipe_laptop" required value="{{old('tipe_laptop')}}">
               <div class="invalid-feedback">
               </div>
             </div>
 
             <div class="col-sm-6">
               <label for="slug" class="form-label">Current type</label>
-              <input type="text" name="slug" class="form-control  @error('slug') is-invalid @enderror" required>
+              <input type="text" name="slug" class="form-control  @error('slug') is-invalid @enderror" required value="{{old('slug')}}">
              @error('slug')
               <div class="invalid-feedback">
                 {{$message}}
@@ -121,7 +119,7 @@
             <div class="col-12">
               <label for="spesification" class="form-label">Detail Spesification</label>
              <div class="form-floating">
-               <textarea name="detail_product" class="form-control" placeholder="write a Spesification here" id="floatingTextarea2" style="height: 100px"></textarea>
+               <textarea name="detail_product" class="form-control" placeholder="write a Spesification here" id="floatingTextarea2" style="height: 100px">{{old('detail_product')}}</textarea>
               <label for="floatingTextarea2">Spesification</label>
               <div class="invalid-feedback">
                 </div>
@@ -131,24 +129,28 @@
           <div class="row g-3">
             <div class="col-md-6">
               <label for="price" class="form-label">Price</label>
-              <input type="number" name="harga" class="form-control">
+              <input type="number" name="harga" class="form-control" value="{{old('harga')}}">
               <div class="invalid-feedback">
               </div>
             </div>
 
             <div class="col-md-6">
               <label for="stock" class="form-label">Stock</label>
-              <input type="number" name="stok" class="form-control" required>
+              <input type="number" name="stok" class="form-control" required value="{{old('stok')}}">
               <div class="invalid-feedback">
               </div>
             </div>
           </div>
-          
-           <!-- Gambar -->
+      
            <div class="col-md-6">
-              <label for="zip" class="form-label">Picture</label>
-              <input type="text" name="gambar" class="form-control" required>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Select image</label>
+                <input name="gambar" class="form-control  @error('gambar') is-invalid @enderror" type="file" id="gambar">
+                @error('gambar')
               <div class="invalid-feedback">
+                {{$message}}
+              </div>
+              @enderror
               </div>
             </div>
           </div>

@@ -16,7 +16,7 @@
       @foreach($product as $item)
       <div class="card border-info m-2 bg-dark bg-gradient" style="width: 15rem;">
         <div class="d-flex justify-content-center">
-          <img src="assets/asus.jpg" class="card-img-top w-50" alt="{{$item->gambar}}">
+          <img src="{{asset('storage/' . $item->gambar)}}" alt="pic">
         </div>
         
         <div class="card-body text-light">

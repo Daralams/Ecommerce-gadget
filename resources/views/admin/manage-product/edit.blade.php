@@ -147,14 +147,14 @@
             </div>
           </div>
           
-           <!-- Gambar -->
+           <!-- Gambar 
            <div class="col-md-6">
               <label for="zip" class="form-label">Picture</label>
               <input type="text" name="gambar" class="form-control" value="{{$product->gambar}}" required>
               <div class="invalid-feedback">
               </div>
             </div>
-          </div>
+          </div> -->
 
           <hr class="my-4">
 

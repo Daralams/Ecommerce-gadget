@@ -237,7 +237,9 @@
            @foreach($product as $item)
             <tr>
               <td>{{$number++}}</td>
-              <td>{{$item->gambar}}</td>
+              <td>
+                <img src="{{asset('storage/' . $item->gambar)}}" alt="pic">
+              </td>
               <td>{{$item->kategoriMerk->merk}}</td>
               <td>{{$item->tipe_laptop}}</td>
               <td>{{$item->stok}}</td>
