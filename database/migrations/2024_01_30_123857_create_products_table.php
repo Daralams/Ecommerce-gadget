@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_merk'); // Tambahkan ini
-            /*$table->foreignId('id_merk')->constrained('kategori_merks', 'id')->onDelete('cascade'); // Tambahkan ini*/
+            $table->foreignId('id_merk');
             $table->text('gambar');
             $table->string('tipe_laptop');
             $table->string('slug')->unique();

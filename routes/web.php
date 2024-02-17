@@ -30,6 +30,12 @@ Route::post('/sign-up', [SignUpController::class, 'store']);
 
 // admin 
 Route::get('/dashboard-admin', [AdminController::class, 'adminRoute']);
+Route::get('/dashboard-admin/addProduct', [AdminController::class, 'createNewProduct']);
+Route::post('/addProduct', [AdminController::class, 'storeProduct']);
+Route::get('/dashboard-admin/{product:slug}/editProduct', [AdminController::class, 'editProduct']);
+Route::put('/editProduct/{product:slug}', [AdminController::class, 'storeProductEdited']);
+
+Route::delete('/dashboard-admin/{product:id}', [AdminController::class, 'deleteProduct']);
 
 // Routes menggunakan closures
 Route::get('/', function() {

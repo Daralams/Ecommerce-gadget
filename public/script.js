@@ -1,1 +1,0 @@
-alert("Hello bro, selamat datang di halaman product")
