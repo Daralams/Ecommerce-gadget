@@ -9,6 +9,13 @@ use App\Models\KategoriMerk;
 
 class RoutesController extends Controller
 {
+  
+  public function landingPage () {
+    return view('pages.welcome', [
+      "title" => "Home",
+      "kategoriMerk" => KategoriMerk::all()
+      ]);
+  }
    
    public function products () {
      
