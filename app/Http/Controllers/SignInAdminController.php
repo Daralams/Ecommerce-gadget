@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class SignInAdminController extends Controller
 {
     public function signInView () {
-      return view('admin.dashboard.signIn', [
+      return view('admin.auth.signIn', [
         "title" => "Sign In | Admin"
         ]);
     }

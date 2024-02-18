@@ -33,12 +33,17 @@ Route::post('/sign-up', [SignUpController::class, 'store']);
 Route::get('/admin-sign-in', [SignInAdminController::class, 'signInView'])->name('login')->middleware('guest');
 Route::post('/admin-sign-in', [SignInAdminController::class, 'authenticate']);
 Route::post('/admin-sign-out', [SignInAdminController::class, 'signOut']);
-Route::get('/dashboard-admin', [AdminController::class, 'adminRoute'])->middleware('auth');
+// Route dashboard 
+Route::get('/dashboard-admin', [AdminController::class, 'dashboard'])->middleware('auth');
 Route::get('/dashboard-admin/addProduct', [AdminController::class, 'createNewProduct']);
 Route::post('/addProduct', [AdminController::class, 'storeProduct']);
 Route::get('/dashboard-admin/{product:slug}/editProduct', [AdminController::class, 'editProduct']);
 Route::put('/editProduct/{product:slug}', [AdminController::class, 'storeProductEdited']);
 Route::delete('/dashboard-admin/{product:id}', [AdminController::class, 'deleteProduct']);
+//Route orders 
+Route::get('/dashboard-admin/orders', [AdminController::class, 'orders']);
+//Route customers 
+Route::get('/dashboard-admin/customers', [AdminController::class, 'customers']);
 
 //Routes landing page
 Route::get('/', [RoutesController::class, 'landingPage']);

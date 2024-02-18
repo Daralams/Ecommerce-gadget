@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\KategoriMerk;
+use App\Models\User;
 
 class AdminController extends Controller
 {
-    public function adminRoute() {
-      return view('admin.dashboard.index', [
+  // All dashboard function
+    public function dashboard() {
+      return view('admin.dashboard.dashboard', [
         "title" => "Dashboard | Admin",
         "product" => Products::all(),
         "kategoriMerk" => KategoriMerk::all()
@@ -69,5 +71,20 @@ class AdminController extends Controller
        public function deleteProduct (Products $product) {
          Products::destroy($product->id);
          return redirect('/dashboard-admin')->with('success', 'Products has been deleted!');
+       }
+       
+       // All orders function 
+       public function orders() {
+         return view('admin.dashboard.orders', [
+           "title" => "Page Orders"
+           ]);
+       }
+       
+       //All Customers function 
+       public function customers () {
+         return view ('admin.dashboard.customers', [
+           "title" => "Page Customers",
+           "users" => User::all()
+           ]);
        }
 }
