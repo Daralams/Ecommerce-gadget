@@ -13,11 +13,16 @@ class AdminController extends Controller
     public function dashboard() {
       return view('admin.dashboard.dashboard', [
         "title" => "Dashboard | Admin",
+        ]);
+    }
+    
+    public function showproducts() {
+      return view('admin.manage-product.showproducts', [
+        "title" => "Products",
         "product" => Products::all(),
         "kategoriMerk" => KategoriMerk::all()
         ]);
     }
-    
     public function createNewProduct() {
       return view('admin.manage-product.create', [
         "title" => "Create New Product | Admin",
@@ -42,7 +47,7 @@ class AdminController extends Controller
         
        Products::create($validated);
        $request->session()->flash('success', 'Product added successfully');
-       return redirect('/dashboard-admin');
+       return redirect('/dashboard-admin/products');
        }
        
        public function editProduct(Products $product) {
@@ -64,13 +69,57 @@ class AdminController extends Controller
            'stok' => ['required']
         ]);
         Products::where('id', $product->id)->update($validated);
-        return redirect('/dashboard-admin')->with('success', 'Product updated successfully');
+        return redirect('/dashboard-admin/products')->with('success', 'Product updated successfully');
        }
 
        
        public function deleteProduct (Products $product) {
          Products::destroy($product->id);
-         return redirect('/dashboard-admin')->with('success', 'Products has been deleted!');
+         return redirect('/dashboard-admin/products')->with('success', 'Products has been deleted!');
+       }
+       
+       // All Brand / kategori merk controller
+       public function showbrand() {
+         return view('admin.manage-product.showbrand', [
+           "title" => "Brand",
+           "kategoriMerk" => KategoriMerk::all()
+           ]);
+       }
+       
+       public function createbrand() {
+         return view('admin.manage-product.createbrand', [
+           "title" => "Brand || Create brand"
+           ]);
+       }
+       
+       public function storebrand(Request $request) {
+         $validated = $request->validate([
+           "merk" => ["required", "unique:kategori_merks"],
+           "slug" => ["required", "unique:kategori_merks"]
+           ]);
+           
+           KategoriMerk::create($validated);
+           $request->session()->flash('success', 'Brand added successfully');
+           return redirect('/dashboard-admin/brand');
+       }
+       
+       public function editbrand(KategoriMerk $kategoriMerk) {
+         return view('admin.manage-product.editbrand', [
+           "title" => "Edit brand",
+           "kategoriMerk" => $kategoriMerk,
+           ]);
+       }
+       
+       
+       public function storeBrandEdited(Request $request, KategoriMerk $kategoriMerk) {
+         
+         $validated = $request->validate([
+           "merk" => ["required", "unique:kategori_merks"],
+           "slug" => ["required", "unique:kategori_merks"]
+           ]);
+           
+           KategoriMerk::where('id', $kategoriMerk->id)->update($validated);
+           return redirect('/dashboard-admin/brand')->with('success', 'Brand updated successfully');
        }
        
        // All orders function 

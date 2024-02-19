@@ -13,6 +13,16 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="/dashboard-admin/products">
+              <i class="bi bi-bag-check-fill"></i>
+              Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="/dashboard-admin/brand">
+              <i class="bi bi-bag-check-fill"></i>
+              Brand</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2 {{Request::is('dashboard-orders') ? 'active' : '' }}" href="/dashboard-admin/orders">
                 <svg class="bi"><use xlink:href="#cart"/></svg>
                 Orders
