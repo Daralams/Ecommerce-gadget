@@ -33,6 +33,9 @@
           <a class="nav-link {{$title === 'Sign In' ? 'active' : ''}}" href="/sign-in">Sign in</a>
         </li>
         @endauth
+        <li class="nav-item">
+          <a class="nav-link {{$title === 'Orders' ? 'active' : ''}}" href="/orders"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
       </ul>
       <form class="d-flex" role="search" action="/products">
         <input class="form-control me-2 bg-transparent" type="text" placeholder="Search" name="search" value="{{request('search')}}">

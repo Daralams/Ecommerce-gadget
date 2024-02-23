@@ -22,4 +22,10 @@ class Products extends Model
     {
       return $this->belongsTo(KategoriMerk::class, 'id_merk');
     }
+    
+    public function orders(): BelongsTo
+    {
+      return $this->belongsTo(Orders::class, 'id_product');
+    }
+    
 }

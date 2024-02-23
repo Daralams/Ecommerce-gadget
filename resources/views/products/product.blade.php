@@ -16,7 +16,7 @@
           <p class="card-text">Quantity : {{$product->stok}}</p>
           <p class="card-text">Publised at : {{$product->created_at->diffForHumans()}}</p>
           <a href="/products" class="btn btn-info">Back</a>
-          <a href="/payment" class="btn btn-outline-info">Add to Cart  </a>
+          <a href="/orders/{{$product->slug}}" class="btn btn-outline-info"><i class="fa-solid fa-cart-shopping"></i>&nbsp; Buy Now</a>
           </div>
         </div>
 </div>

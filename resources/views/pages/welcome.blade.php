@@ -24,61 +24,7 @@
   </div>
   
   <!-- Our product section -->
-  <div class="my-5">
-    <h2 class="fs-2 text-white text-gradient text-center">Our product</h2>
-    
-    <div class="mt-4 d-flex flex-wrap gap-3 justify-content-center">
-      
-      <div class="card border-info mb-3 bg-dark bg-gradient" style="max-width: 18rem;" id="card-size">
-        <div class="card-body text-light text-center">
-        <h5 class="card-title">{{$kategoriMerk[0]->merk}}</h5>
-        <div class="height-img">
-          <img src="assets/asus.jpg" alt="{{$kategoriMerk[0]->merk}}" ><br>
-        </div>
-        <a href="/product/{{$kategoriMerk[0]->slug}}" class="btn btn-outline-info mt-3">See More</a>
-        </div>
-      </div>
-      <div class="card border-info mb-3 bg-dark bg-gradient" style="max-width: 18rem;" id="card-size">
-        <div class="card-body text-light text-center">
-        <h5 class="card-title">{{$kategoriMerk[1]->merk}}</h5>
-        <div class="height-img">
-          <img src="assets/acer.png" alt="{{$kategoriMerk[1]->merk}}"><br>
-        </div>
-        
-        <a href="/product/{{$kategoriMerk[1]->slug}}" class="btn btn-outline-info mt-3">See More</a>
-        </div>
-      </div>
-      <div class="card border-info mb-3 bg-dark bg-gradient" style="max-width: 18rem;" id="card-size">
-        <div class="card-body text-light text-center">
-        <h5 class="card-title">{{$kategoriMerk[2]->merk}}</h5>
-        <div class="height-img">
-          <img src="assets/lenovo.jpg" alt="{{$kategoriMerk[2]->merk}}"><br>
-        </div>
-        
-        <a href="/product/{{$kategoriMerk[2]->slug}}" class="btn btn-outline-info mt-3">See More</a>
-        </div>
-      </div>
-      <div class="card border-info mb-3 bg-dark bg-gradient" style="max-width: 18rem;" id="card-size">
-        <div class="card-body text-light text-center">
-        <h5 class="card-title">{{$kategoriMerk[3]->merk}}</h5>
-        <div class="height-img">
-          <img src="assets/dell.png" alt="{{$kategoriMerk[3]->merk}}" ><br>
-        </div>
-        
-        <a href="/product/{{$kategoriMerk[3]->slug}}" class="btn btn-outline-info mt-3">See More</a>
-        </div>
-      </div>
-      <div class="card border-info mb-3 bg-dark bg-gradient" style="max-width: 18rem;" id="card-size">
-        <div class="card-body text-light text-center d-block">
-        <h5 class="card-title">{{$kategoriMerk[4]->merk}}</h5>
-        <div class="height-img">
-          <img src="assets/advan.jpg" class="card-img-top" alt="{{$kategoriMerk[4]->merk}}"><br>
-        </div>
-        
-        <a href="/product/{{$kategoriMerk[4]->slug}}" class="btn btn-outline-info mt-3">See More</a>
-        </div>
-      </div>
-    </div>
+
     
     <div class="text-center">
       <a href="/products" class="btn btn-outline-info mt-3">See all Product</a>

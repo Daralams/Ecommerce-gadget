@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\KategoriMerk;
 use App\Models\User;
+use App\Models\Orders;
 
 class AdminController extends Controller
 {
@@ -125,8 +126,14 @@ class AdminController extends Controller
        // All orders function 
        public function orders() {
          return view('admin.dashboard.orders', [
-           "title" => "Page Orders"
+           "title" => "Page Orders",
+           "orders" => Orders::all()
            ]);
+       }
+       
+       public function accOrders(Orders $order) {
+         Orders::where('id', $order->id)->update(['status' => 'dikonfirmasi']);
+         return redirect()->back()->with('success', 'Order confirmed successfully.');
        }
        
        //All Customers function 

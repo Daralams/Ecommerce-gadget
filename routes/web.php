@@ -10,6 +10,7 @@ use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SignInAdminController;
+use App\Http\Controllers\OrdersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +51,8 @@ Route::get('/dashboard-admin/brand/{merk:slug}/editBrand', [AdminController::cla
 Route::put('/dashboard-admin/brand/{merk:slug}/editBrand', [AdminController::class, 'storeBrandEdited']);
 //Route orders 
 Route::get('/dashboard-admin/orders', [AdminController::class, 'orders'])->middleware('auth');
+Route::put('/dashboard-admin/orders/{order:id}', [AdminController::class, 'accOrders']);
+
 //Route customers 
 Route::get('/dashboard-admin/customers', [AdminController::class, 'customers'])->middleware('auth');
 
@@ -68,6 +71,10 @@ Route::get('/product/{kategori:slug}', function(KategoriMerk $kategori) {
     ]);
 }); 
 //Route::get('/products/{kategori:slug}', [RoutesController::class, 'brand']);
+
+// Route transaction
+Route::get('/orders/{product:slug}', [OrdersController::class, 'orderView']);
+Route::post('/orders', [OrdersController::class, 'storeOrder']);
 
 
 Route::get('/contact', [RoutesController::class, 'contact']);
